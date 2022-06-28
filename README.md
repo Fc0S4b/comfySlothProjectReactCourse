@@ -32,3 +32,8 @@ FAST_REFRESH=FALSE
 
 1. componentes about, checkoutPage y pageHero
 2. PageHero se le pasa props de title según title de componente (about o checkoutPage) para que se vea como home / {title}
+
+#### Home Page hero
+
+1. Contiene los componentes de Hero, FeaturedProducts, Services y Contact
+2. Desplegar el contenido del hero, texto, botón de compra enlazado a products page y dos imágenes
