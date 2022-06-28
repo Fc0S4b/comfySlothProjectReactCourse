@@ -29,3 +29,6 @@ FAST_REFRESH=FALSE
 2. configurar errorPage con mensaje 404 en un section
 
 #### About, Checkout Page
+
+1. componentes about, checkoutPage y pageHero
+2. PageHero se le pasa props de title según title de componente (about o checkoutPage) para que se vea como home / {title}
