@@ -20,3 +20,12 @@
 
 .env file in the root
 FAST_REFRESH=FALSE
+
+### apuntes
+
+#### Error page
+
+1. mostrar una página 404 al setear mal url
+2. configurar errorPage con mensaje 404 en un section
+
+#### About, Checkout Page
