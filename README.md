@@ -107,3 +107,10 @@ FAST_REFRESH=FALSE
 2. la galería usa el hook useState en donde main va a usar images[0] por default y setMain cambiará la imagen principal cuando se haga click sobre una imagen en miniatura ( onClick={() => setMain(images[index])})
 3. dos elementos en el render, un img con la imagen principal src={main.url} y un div gallery con images.map para setear según index la imagen principal onClick
 4. una clase dinámica para establecer un border cuando se selecciona la miniatura, como es condicional se establece la clase con op ternario.
+
+#### Single Product - Stars (manual approach)
+
+1. Pasar props stars y reviews desde el componente SingleProductPage al componente Stars
+2. la forma manual de hacerlo sería hacer 5 span, una para cada estrella, y con op ternarios anidados ir probando condiciones y estableciendo los íconos de estrellas correspondientes
+3. por ejemplo para la primera estrella: si stars es mayor que uno, entonces muestra un ícono de estrella relleno, si no lo es y es mayor que 0.5, entonces muestra un ícono a la mitad y sino solo muestra el ícono sin relleno.
+4. para el resto de los span, van creciendo las condiciones en 1 ya que debe considerar la estrella anterior
