@@ -62,3 +62,12 @@ FAST_REFRESH=FALSE
 3. GET_PRODUCTS_SUCCESS tendrá como payload products recibido del response axios, de esta forma cambiará el estado inicial del arreglo vacío a un arreglo con los productos
 4. el reducer le dará a GET_PRODUCTS_BEGIN el loading true, el GET_PRODUCTS_SUCCESS el loading false, products igual al payload y featured_products a una lista filtrada con los products.featured === true
 5. GET_PRODUCTS_ERROR en el reducer tendrá el loading false y definirá products_error a true
+
+#### featured products
+
+1. luego de setear el context ahora toca renderizarlo
+2. el render consistirá en el featured primero, luego en singleproduct y luego products page.
+3. armar el componente Error con un simple div y clases al igual que el componente Loading
+4. armar el componente featuredProducts recuperando del contexto loading, error y featured products para renderizar condicionalmente cada caso si está cargando, con error o normal. Si es normal desplegar una lista de 3 productos pasándole cada producto como props al componente producto
+5. Product destructurá las props para recoger image, name, price, id y armará el componente con estas variables.
+6. se usa Link de react router para dirigir la acción de hacer click en el ícono al producto que tenga el link /product/id
