@@ -50,3 +50,7 @@ FAST_REFRESH=FALSE
 #### formspree
 
 1. añadir action desde formspree para el form del proyecto
+
+#### fetchProducts overview
+
+1. fetchProducts() definida en el provider (context) y un useEffect para invocarla usando como url la api que se encuentra en utils
