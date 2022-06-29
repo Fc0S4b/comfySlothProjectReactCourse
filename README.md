@@ -129,3 +129,12 @@ FAST_REFRESH=FALSE
 4. el color seleccionado se define con el hook useState, siendo default colors[0]
 5. el botón reacciona con onClick para cambiar el estado de color principal a color elegido y que a la vez cambie su clase
 6. Una vez seleccionado el botón o el color, se muestra un ícono de FaCheck por encima
+
+#### Amount Buttons
+
+1. Desde el componente AddToCart se crea un div con el componente de AmountButtons con los props de amount, increase y decrease. Estos props son configurados en el mismo componente de AddToCart. Aparte se usa un Link hacia el carro de compras
+2. AmountButtons tendrá configurado dos botones con onClick que reaccionarán a decrease e increase y entremedio un h2 con el amount.
+3. Para setear increase y decrease, se define amount como estado y setAmount que lo cambiará, default=1.
+4. increase lo que hace es invocar a setAmount para que sume el valor antiguo + 1 y lo retorne, con la condición de que si es mayor que el stock disponible, retorne el stock
+5. al igual que increase, decrease restará - 1 al antiguo valor y devolverá 1 si el valor temporal del amount es menor que 1
+6. el valor antiguo que toma setAmount en una callback, es lo que se llama "reaccionar al estado antiguo". No se puede usar state dentro de un setState, pero si puede tomar una callback que tenga de parámetro una variable que actúa como estado previo y se define la callback en función de ese estado previo para retornar el valor actualizado
