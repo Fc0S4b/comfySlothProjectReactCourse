@@ -100,3 +100,10 @@ FAST_REFRESH=FALSE
 3. un btn para regresar a la lista de productos
 4. destructurar los elementos que se necesitan desde product (product se obtiene con el context y single_product) y usarlos según el item 5
 5. un div con el contenido que tiene el nombre del producto, un componente Stars que muestra íconos de estrellas según clasificación del producto, precio con formatPrice, description, stock dinámico ya que si no hay stock debe mostrar "out of stock", info con el sku (id del producto), company y un componente condicional de AddToCart que se muestra solo si stock es mayor que cero.
+
+### SingleProduct - ProductImages
+
+1. inicialmente images que pasa al componente ProductImages como props, está indefinido, aún no se ha cargado, por lo que por default el prop estará definido como un array con url='' ya que se usará url pero también estará inicialmente indefinido (el prop queda como { images = [{ url: '' }] } )
+2. la galería usa el hook useState en donde main va a usar images[0] por default y setMain cambiará la imagen principal cuando se haga click sobre una imagen en miniatura ( onClick={() => setMain(images[index])})
+3. dos elementos en el render, un img con la imagen principal src={main.url} y un div gallery con images.map para setear según index la imagen principal onClick
+4. una clase dinámica para establecer un border cuando se selecciona la miniatura, como es condicional se establece la clase con op ternario.
