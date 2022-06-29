@@ -71,3 +71,9 @@ FAST_REFRESH=FALSE
 4. armar el componente featuredProducts recuperando del contexto loading, error y featured products para renderizar condicionalmente cada caso si está cargando, con error o normal. Si es normal desplegar una lista de 3 productos pasándole cada producto como props al componente producto
 5. Product destructurá las props para recoger image, name, price, id y armará el componente con estas variables.
 6. se usa Link de react router para dirigir la acción de hacer click en el ícono al producto que tenga el link /product/id
+
+#### format price
+
+1. mostrar los precios divididos por 100 no es recomendable porque javascript presenta bugs cuando opera con decimales, por lo que debes usar una función formatPrice (definida en utils/helpers.js).
+2. formatPrice tomará el price como argumento y formateará price según como tenga configurado el método Intl.NumberFormat.
+3. el método trabaja con números ya redondeados
