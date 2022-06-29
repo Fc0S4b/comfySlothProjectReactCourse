@@ -114,3 +114,9 @@ FAST_REFRESH=FALSE
 2. la forma manual de hacerlo sería hacer 5 span, una para cada estrella, y con op ternarios anidados ir probando condiciones y estableciendo los íconos de estrellas correspondientes
 3. por ejemplo para la primera estrella: si stars es mayor que uno, entonces muestra un ícono de estrella relleno, si no lo es y es mayor que 0.5, entonces muestra un ícono a la mitad y sino solo muestra el ícono sin relleno.
 4. para el resto de los span, van creciendo las condiciones en 1 ya que debe considerar la estrella anterior
+
+#### Single Product - Stars (array approach)
+
+1. para configurar de forma programática el componente stars, se debe crear un array de length 5 con Array.from
+2. el callback que usa Array.from debe retornar el span configurado de forma manual solo que tendrá como parámetro index que sumará 1 en caso de que sea estrella llena, o incrementará a la mitad si es media estrella (index + 1, como parte de 0 index y number= index+0.5 para los incrementos medios)
+3. el array se guarda en una variable tempStars y se redenriza en un div
