@@ -77,3 +77,10 @@ FAST_REFRESH=FALSE
 1. mostrar los precios divididos por 100 no es recomendable porque javascript presenta bugs cuando opera con decimales, por lo que debes usar una función formatPrice (definida en utils/helpers.js).
 2. formatPrice tomará el price como argumento y formateará price según como tenga configurado el método Intl.NumberFormat.
 3. el método trabaja con números ya redondeados
+4. ojo con la divisa chilena, puede presentar bugs para valores menores a 10000
+
+#### fetch Single product
+
+1. ahora se hace la request para un solo producto configurando una fetchSingleProduct
+2. al igual que la fetch anterior, se envía al reducer pero por un solo producto: GET_SINGLE_PRODUCT_BEGIN, GET_SINGLE_PRODUCT_SUCCESS, GET_SINGLE_PRODUCT_ERROR, manejado los últimos dos con un trycatch
+3. se configura el reucer activando y desactivando loading, error y seteando single_product al action.payload. En SUCCESS error será por default false
