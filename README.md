@@ -120,3 +120,12 @@ FAST_REFRESH=FALSE
 1. para configurar de forma programática el componente stars, se debe crear un array de length 5 con Array.from
 2. el callback que usa Array.from debe retornar el span configurado de forma manual solo que tendrá como parámetro index que sumará 1 en caso de que sea estrella llena, o incrementará a la mitad si es media estrella (index + 1, como parte de 0 index y number= index+0.5 para los incrementos medios)
 3. el array se guarda en una variable tempStars y se redenriza en un div
+
+#### singleProduct - Add to cart -colors
+
+1. product contiene los datos de colores que necesitamos para hacer los botones, por lo que pasamos product como props a AddToCart desde SingleProductPage
+2. destructuramos product para obtener aparte de colors, stock e id que mas tarde utilizaremos
+3. El wrapper renderizado contendrá un map al colors que retornará la cantidad de botones según colores disponibles, tendrá style que cambiará según el color correspondiente al item. También tendrá una clase dinámica que decide si es un botón activo o no dependiendo si es el color seleccionado
+4. el color seleccionado se define con el hook useState, siendo default colors[0]
+5. el botón reacciona con onClick para cambiar el estado de color principal a color elegido y que a la vez cambie su clase
+6. Una vez seleccionado el botón o el color, se muestra un ícono de FaCheck por encima
