@@ -37,3 +37,16 @@ FAST_REFRESH=FALSE
 
 1. Contiene los componentes de Hero, FeaturedProducts, Services y Contact
 2. Desplegar el contenido del hero, texto, botón de compra enlazado a products page y dos imágenes
+
+#### home page - services
+
+1. en services setear los artículos con los p
+2. setear un artículo que itere sobre services, importado desde utils
+
+#### home page- contact
+
+1. form con un input de email y un btn de submit para suscribe
+
+#### formspree
+
+1. añadir action desde formspree para el form del proyecto
