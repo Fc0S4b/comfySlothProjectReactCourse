@@ -84,3 +84,11 @@ FAST_REFRESH=FALSE
 1. ahora se hace la request para un solo producto configurando una fetchSingleProduct
 2. al igual que la fetch anterior, se envía al reducer pero por un solo producto: GET_SINGLE_PRODUCT_BEGIN, GET_SINGLE_PRODUCT_SUCCESS, GET_SINGLE_PRODUCT_ERROR, manejado los últimos dos con un trycatch
 3. se configura el reucer activando y desactivando loading, error y seteando single_product al action.payload. En SUCCESS error será por default false
+
+#### single product- loading error
+
+1. pasamos la función fetchSingleProduct al provider para que tenerla disponible en los componentes renderizados
+2. la usamos en singleProductPage.
+3. rescatamos el id usando el hook de router useParams y usamos también useHistory para usar el método que hace que se direccione hacia una página (en este caso hacia /)
+4. con useProductsContext rescatamos fetchSingleProduct y la usamos en useEffect con url e id dinámicos y también con id en la lista de dependencias
+5. otro useEffect para devolver la página al home en caso de error después de 3 segundos, error en lista de dependencia ya que cambia de estado de false a true
