@@ -54,3 +54,11 @@ FAST_REFRESH=FALSE
 #### fetchProducts overview
 
 1. fetchProducts() definida en el provider (context) y un useEffect para invocarla usando como url la api que se encuentra en utils
+
+#### fetchProduct complete
+
+1. initialState products_loading, products_error, products y featured_products
+2. configurar GET_PRODUCTS_BEGIN, GET_PRODUCTS_SUCCESS y GET_PRODUCTS_ERROR con estado inicial en products_loading:true, products_error:false, products: [] y featured_products:[]
+3. GET_PRODUCTS_SUCCESS tendrá como payload products recibido del response axios, de esta forma cambiará el estado inicial del arreglo vacío a un arreglo con los productos
+4. el reducer le dará a GET_PRODUCTS_BEGIN el loading true, el GET_PRODUCTS_SUCCESS el loading false, products igual al payload y featured_products a una lista filtrada con los products.featured === true
+5. GET_PRODUCTS_ERROR en el reducer tendrá el loading false y definirá products_error a true
