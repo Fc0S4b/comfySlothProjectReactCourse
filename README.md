@@ -138,3 +138,11 @@ FAST_REFRESH=FALSE
 4. increase lo que hace es invocar a setAmount para que sume el valor antiguo + 1 y lo retorne, con la condición de que si es mayor que el stock disponible, retorne el stock
 5. al igual que increase, decrease restará - 1 al antiguo valor y devolverá 1 si el valor temporal del amount es menor que 1
 6. el valor antiguo que toma setAmount en una callback, es lo que se llama "reaccionar al estado antiguo". No se puede usar state dentro de un setState, pero si puede tomar una callback que tenga de parámetro una variable que actúa como estado previo y se define la callback en función de ese estado previo para retornar el valor actualizado
+
+#### filter context setup
+
+1. FilterProvider envuelve el componente App en index y a su vez es envuelto por ProductsProvider
+2. el FilterProvider como nuevo context para mantener más ordenado los contextos (se puede hacer todo en uno solo) usará products obtenido desde useProductsContext.
+3. FilterProvider usará useReducer para manejar el reducer de filter, con estado inicial de all_products y filtered_products igual a un arreglo vacío
+4. cuando se renderize el contexto (usando useEffect), enviará la acción de LOAD_PRODUCTS al reducer del filter y un payload de products, products estará en la lista de dependencias
+5. el reducer al reaccionar con LOAD_PRODUCTS tomará los estados previos iniciales y actualizará all_products y filtered_products a lo que lleva el payload
