@@ -146,3 +146,10 @@ FAST_REFRESH=FALSE
 3. FilterProvider usará useReducer para manejar el reducer de filter, con estado inicial de all_products y filtered_products igual a un arreglo vacío
 4. cuando se renderize el contexto (usando useEffect), enviará la acción de LOAD_PRODUCTS al reducer del filter y un payload de products, products estará en la lista de dependencias
 5. el reducer al reaccionar con LOAD_PRODUCTS tomará los estados previos iniciales y actualizará all_products y filtered_products a lo que lleva el payload
+
+#### Products Page - Grid View
+
+1. pasar los valores del estado inicial al FilterContext.Provider para recuperarlos desde los componentes
+2. Setear el componente ProductsPage con el título de PageHero/ y un Wrapper que contiene componentes de Filters/ Sor/ y ProductList/
+3. ProductList contiene la lista de products, products se recupera desde filtered_products con useFilterContext. Posser un Wrapper de componente llamado GridView con props de product
+4. GridView es una grilla que muestra la lista de productos de dos formas distintas, una resumida y otra detallada por item. Para el primer caso se encierra en un div un products.map para desplegar por cada item un componente Product que recibe una key por ser lista iterable y el resto de las props {...product}
