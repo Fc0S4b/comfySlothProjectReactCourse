@@ -327,3 +327,12 @@ FAST_REFRESH=FALSE
 3. el reducer se encargará del id y value del payload al reaccionar a TOGGLE_CART_ITEM_AMOUNT para establecer un arreglo temporal tal que dependa del value
 4. primero se verifica si el item seleccionado coincide con el id, de lo contrario lo deja igual. Si es el mismo id, entonces se pregunta si se desea inc o dec, si se incrementa entonces se establece un newAmount tal que amuenta por 1 por cada reacción y se asigna a amount para retornarlo. Si supera el stock entonces entrega el máximo de stock
 5. de la misma forma se define el dec, con la diferencia que decrece por 1 unidad y si es menor que 1 newAmount será 1
+
+#### cart -calculate totals
+
+1. establecer en cartButtons el total_items recuperado desde cart context para establercer dinámicamente el cambio en la cantidad de items en el carro que se ve en el ícono del mismo
+2. useEffect del localStorage enviará al reducer COUNT_CART_TOTALS para renderizar cada vez que cambia el total
+3. el reduce lo que hará será iterar sobre el array de state.cart con reduce y contar por cada item cual es el precio y la cantidad de items en el carro
+4. de la función reducer se desctructura total_items y total_amount para retornar como respuesta del reducer con {...state, total_items, total_amount}
+5. lo que hace reduce es retornar un objeto con total_items y total_amount que comienzan con valores default de 0
+6. reduce toma amount y price de cartItem (que entra como parámetro). amount se lo añade al total_items y price\*amount al total_amount, se retorna siempre el total
