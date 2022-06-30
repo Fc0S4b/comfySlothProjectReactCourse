@@ -269,3 +269,5 @@ FAST_REFRESH=FALSE
 4. una vez que existe este elemento, el elemento temporal será verdadero ya que find encontrará ese match entonces se debe manejar el estado true de tempItem con el if
 
 #### AddToCart Reducer - Existing Item
+
+1. si tempItem ya existe entonces se va a crear otro item temporal llamado tempCart. Este item se recorrerá con un map para devolver un nuevo arreglo. Este nuevo arreglo tiene dos condiciones, si el producto ya está en el carro entonces se incrementa la cantidad de ese producto (en amount), además si supera el stock, entonces se establece hasta un máximo igual al stock, entonces por esta parte se retorna los items anteriores de la lista ...cartItem mas el amount modificado amount:newAmount. En cambio si no coincide el elemento en particular con alguno que ya esté adentro, simplemente se retorna ese item para que se agregue a tempCart. Finalmente se retorna ...state con cart modificado a cart:tempCart
