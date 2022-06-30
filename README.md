@@ -319,3 +319,11 @@ FAST_REFRESH=FALSE
 1. desde el cart context se establece las funciones que darán las instrucciones para que el reducer reaccione, este es removeItem que le entregará al payload el id del producto con REMOVE_CART_ITEM y clearCart que envía la acción de CLEAR_CART
 2. el reducer tendrá como función para REMOVE_CART_ITEM un filtro de los productos actuales de cart si no son iguales al id que se entrega por payload, entonces si es así, se devuelve el nuevo estado {...state, cart: tempCart}. tempCart contiene los productos que no coincidían con el id filtrado
 3. reducer reaccionará a CLEAR_CART para solo dejar el nuevo estado del carro vacío {...state, cart:[]}
+
+#### cart - toggle amount
+
+1. con toggle amount como función definidida en cart context, tendrá como parámetro id y value que se pasarán como payload al reducer con la acción de TOGGLE_CART_ITEM_AMOUNT
+2. El componente de CartItem tendrá como función increase que tomará la función del context toggleAmount para pasarle el id y el value= 'inc' y para decrease será lo mismo pero con value='dec'
+3. el reducer se encargará del id y value del payload al reaccionar a TOGGLE_CART_ITEM_AMOUNT para establecer un arreglo temporal tal que dependa del value
+4. primero se verifica si el item seleccionado coincide con el id, de lo contrario lo deja igual. Si es el mismo id, entonces se pregunta si se desea inc o dec, si se incrementa entonces se establece un newAmount tal que amuenta por 1 por cada reacción y se asigna a amount para retornarlo. Si supera el stock entonces entrega el máximo de stock
+5. de la misma forma se define el dec, con la diferencia que decrece por 1 unidad y si es menor que 1 newAmount será 1
