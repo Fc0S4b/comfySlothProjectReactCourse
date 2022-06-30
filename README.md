@@ -178,3 +178,12 @@ FAST_REFRESH=FALSE
 1. se define en el context del filter como estado inicial sort: 'price-lowest' y una función en el provider de updateSort que mandará UDPATE_SORT al reducer con dispatch, también mandará como payload value que será la opción de filtro seleccionada (bajo precio, alto, orden alfabético a-z o z-a). updateSort se pasa como props en el provider, sort ya va incluido en el ...state
 2. desde el componente Sort, como en las opciones de sort, cada una tiene un value asignado así como también el select con el name sort que se usará posteriormente (for demostration), select tendrá onChange usar updateSort y value= sort por default, entonce cuando se cambia la selección, value se actualiza y se pasa al contexto que será manejado por el reducer
 3. el reducer reaccionará a UPDATE_SORT actualizando sort de estado inicial igual al action.payload enviado con el dispatch anteriormente
+
+#### Sort Functionality
+
+1. filterContext usará un useEffect para mostrar en el momento del render, el orden de los productos de acuerdo a la clasificación (sort), para esto enviará dispatch con SORT_PRODUCTS y con lista de dependencia products y state.sort, ya que sort en el estado inicial cambia por cada render
+2. el reducer manejará SORT_PRODUCTS por lo que necesitará manejar 4 condicionales de acuerdo a cada valor del sort.
+3. Una lista con filtered_products será la encargada de retornarse pero dependiendo del valor del sort, tendrá valores ordenados que le indique el mismo sort
+4. para ordenar valores de precio, usa sort comparando a.price- b.price para precios de menor a mayor y b.price - a.price para mayor a menor (la diferencia entrega un valor menor a cero, 0 o mayor a cero que le indica a sort donde situar a con respecto a b y viceverza, si es negativo entonces a va antes que b, 0 no se mueve y mayor a cero entonces b antes que a)
+5. para comparar letras se puede usar localeCompare que devuelve un número al igual que sort, menor a 0 si la letra a va antes que b o mayor a cero si b va antes que a y cero si estan en el mismo nivel. Este número devuelto se pasa a sort y ordena a la lista de los productos filtrados.
+6. el retorno es asignando filtered_products: tempProducts para que se asigne a una lista vacía si es que tempProducts no tiene ningún valor.
