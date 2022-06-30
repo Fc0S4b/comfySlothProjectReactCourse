@@ -172,3 +172,9 @@ FAST_REFRESH=FALSE
 1. para togglear grid_view entre verdadero y falso (mostrar grilla o lista), realizamos dispatch a las acciones de SET_GRIDVIEW y SET_LISTVIEW al FilterProvider ya que estas acciones se pasarán a través de value como props al componente sort
 2. En el reducer del filter, cambiará de estado grid_view a true o false según el valor que tenga action.type: SET_GRIDVIEW o SET_LISTVIEW
 3. recuperamos las funciones setGridView y setListView desde useFilterContext en el componente Sort y lo seteamos en onClick para cada botón correspondiente
+
+#### Sort Component - Controlled input
+
+1. se define en el context del filter como estado inicial sort: 'price-lowest' y una función en el provider de updateSort que mandará UDPATE_SORT al reducer con dispatch, también mandará como payload value que será la opción de filtro seleccionada (bajo precio, alto, orden alfabético a-z o z-a). updateSort se pasa como props en el provider, sort ya va incluido en el ...state
+2. desde el componente Sort, como en las opciones de sort, cada una tiene un value asignado así como también el select con el name sort que se usará posteriormente (for demostration), select tendrá onChange usar updateSort y value= sort por default, entonce cuando se cambia la selección, value se actualiza y se pasa al contexto que será manejado por el reducer
+3. el reducer reaccionará a UPDATE_SORT actualizando sort de estado inicial igual al action.payload enviado con el dispatch anteriormente
