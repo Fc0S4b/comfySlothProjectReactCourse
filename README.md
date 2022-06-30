@@ -187,3 +187,9 @@ FAST_REFRESH=FALSE
 4. para ordenar valores de precio, usa sort comparando a.price- b.price para precios de menor a mayor y b.price - a.price para mayor a menor (la diferencia entrega un valor menor a cero, 0 o mayor a cero que le indica a sort donde situar a con respecto a b y viceverza, si es negativo entonces a va antes que b, 0 no se mueve y mayor a cero entonces b antes que a)
 5. para comparar letras se puede usar localeCompare que devuelve un número al igual que sort, menor a 0 si la letra a va antes que b o mayor a cero si b va antes que a y cero si estan en el mismo nivel. Este número devuelto se pasa a sort y ordena a la lista de los productos filtrados.
 6. el retorno es asignando filtered_products: tempProducts para que se asigne a una lista vacía si es que tempProducts no tiene ningún valor.
+
+#### filters - default values
+
+1. definimos los filtros como estado inicial texto, company, category, color, min y max price, price y shipping. Min price y max price tendrá valor default 0. Usaremos el mismo render incial (LOAD_PRODUCTS) para desplegar los filtros iniciales
+2. en el reducer, precisamente en el condicional que maneja LOAD_PRODUCTS, se define una lista de todos los precios que hay en products (recuerda que products se pasa como payload), luego esa lista se obtiene con Math el máximo precio.
+3. el retorno de ese condicional en el reducer tendrá definido el nuevo estado de los filters max price y price al mismo valor de maxPrice.
