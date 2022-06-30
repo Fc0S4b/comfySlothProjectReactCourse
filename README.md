@@ -218,3 +218,9 @@ FAST_REFRESH=FALSE
 #### filters - companies
 
 1. armar lista desplegable de companies en el componente Filters. Con un select que tiene por value company, onChange updateFilters y que despliega option con map para cada companies asignándole value a la compañía respectiva
+
+#### filters - colors
+
+1. armar colors en el componente de filters desplegando un botón por cada color de la lista de colors. Cada botón tendrá una clase dinámica que reaccionará de acuerdo a si está activo o no y un data-set igual al color iterado. Ya que al tener un button no podemos acceder al contenido de este con value pero si con data-set. Cada botón reaccionará con updateFilters y habrá un ícono de Check dinámico si el color coincide con el item iterado
+2. habrá un return distinto para el botón de all, con clase distinta en all y data-color all, esto es porque all no tiene color en particular y su contenido es all.
+3. en el context para updateFilter, al igual que en category, se debe establecer un condicional en caso de que name sea igual a color para establecer el value = e.target.dataset.color
