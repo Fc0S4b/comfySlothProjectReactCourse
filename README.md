@@ -153,3 +153,9 @@ FAST_REFRESH=FALSE
 2. Setear el componente ProductsPage con el título de PageHero/ y un Wrapper que contiene componentes de Filters/ Sor/ y ProductList/
 3. ProductList contiene la lista de products, products se recupera desde filtered_products con useFilterContext. Posser un Wrapper de componente llamado GridView con props de product
 4. GridView es una grilla que muestra la lista de productos de dos formas distintas, una resumida y otra detallada por item. Para el primer caso se encierra en un div un products.map para desplegar por cada item un componente Product que recibe una key por ser lista iterable y el resto de las props {...product}
+
+#### List view
+
+1. vamos alternar grid_view entre falso y verdadero para mostrar la grilla y no, para eso se define como estado inicial grid_view:false en el filter_context
+2. ProductList tendrá como condición de que si grid_view es falso, entonces se muestra el componente ListView con el prop de products. También tiene una condición de que no muestra productos si products.length es menor a 1
+3. El componente ListView itera sobre el prop products con map para mostrar un article de key id, image, name y price con formatPrice. Un description acortado con el método substring y un link al producto ruteado al enlace según id
