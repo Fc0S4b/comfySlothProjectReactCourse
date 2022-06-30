@@ -61,6 +61,9 @@ export const FilterProvider = ({ children }) => {
     let name = e.target.name;
     let value = e.target.value;
     // name ahora es válido porque filters tiene múltiples valores y solo interesa el que calza con name
+    if (name === 'category') {
+      value = e.target.textContent;
+    }
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
   };
   const clearFilters = () => {};

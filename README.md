@@ -209,3 +209,8 @@ FAST_REFRESH=FALSE
 2. en el helpers se define getUniqueValues que toma el array (all_products) y type (tipo de categoría), se define los valores que calzen con algún tipo de categoría usando map para recorrer el arreglo y recogiendo la categoría que calza con el tipo item[type]
 3. si el type es colors entonces se reduce a un array de un nivel de profundidad usando el método flat (colors tiene varios niveles en su arreglo por lo que se puede aplanar con flat(), si flat tiene valor 2 entonces reduce a dos niveles de profundidad y así sucesivamente).
 4. por último getUniqueValues retorna la categoría 'all' con las únicas categorías que se establecen con new Set()
+
+#### filters - categories
+
+1. armar en el componente Filters un div con las categorías que se obtienen iterando sobre categories (obtenido antes con getUniqueValues), por cada categoría mostrarla como botón y asignarle una clase condicional que establece el botón activo además de la reacción a onClick para updateFilters
+2. updateFilters no podrá actualizar los valores de name y value a la categoría actual porque name tiene que ser igual a text y en este caso es igual a category. Para no tener que escribir una nueva función que actualize esto en el context y manejarla con el reductor, se coloca un condicional en updateFilters en donde si name === 'category' entonces value = e.target.textContent (ya no sería value = 'text')
