@@ -302,3 +302,14 @@ FAST_REFRESH=FALSE
 1. se recupera total_amount y shipping_fee desde useCartContext
 2. CartTotals tendrá un subtotal con formatPrice(total_amount), un shipping fee: con formatPrice(shipping_fee) y un total con la suma de los dos
 3. un link hacia la página de pago
+
+#### cart item
+
+1. con las props que se le pasasn a cartITem se recupera id, image, name, color, price y amount
+2. también removeItem y toggleAmount desde useCartContext
+3. se definen nuevas funciones de increase y decrease
+4. en el render tendrá un div con la imagen del producto, su nombre y color seleccionado además de su precio si es que se despliega en pantalla chica
+5. fuera de ese div (que corresponde a una columna del grid) se muestra el precio que será visto en pantalla completa
+6. otra columna con el componente de AmountButtons con props de amount, increase y decrease ya que se ajustará desde la misma página la cantidad de productos
+7. una columna de subtotal con price\*amount
+8. un botón de basura para remover items
