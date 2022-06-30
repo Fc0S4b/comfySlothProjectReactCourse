@@ -342,3 +342,8 @@ FAST_REFRESH=FALSE
 1. se usará auth0 para el login para eso se necesita configurar el Auth0Provider que envuelve los componentes en el index y el useProvider que será configurado desde user_context.
 2. Auth0Provider debe tener clave de domain, clientID y cacheLocation para que se conecte a la cuenta configurada desde la página web de auth0. Las claves son guardadas en archivo env (para configurar un archiv env debes definir una variable que almacene la clave pero que parta con el nombre de REACT*APP* y luego acceder a ella desde index con process.env.REACT*APP*, gitignore no tomará en cuenta los archivos env pero si el build final)
 3. el context de user tendrá isAuthenticated, loginWithRedirect, logout, user, isLoading que se recupera de useAuth0. Tendrá también una función de estado con useState con default null para el usuario y un useEffect que dependerá de isAuthenticated
+
+#### Auth0 - Login / logout buttons
+
+1. se configura el componente de CartButtons para recuperar logintWithRedirect, myUser y logout desde useUserContext
+2. para el botón que tiene login, debe reaccionar onClick a loginWithRedirect y se debe hacer un botón para logout que reaccione con onClick a () => logout({returnTo: window.location.origin}), tendrá ícono de FaUserMinus
