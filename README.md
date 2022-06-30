@@ -260,3 +260,12 @@ FAST_REFRESH=FALSE
 
 1. el provider del cart pasará una función a los componentes hijos addToCart. Esta función recibe id, color, amount y product como argumentos para dárselos al payload junto con la acción de ADD_TO_CART para que lo maneje el reducer
 2. El componente AddToCart pasará los argumentos anteriores cuando se haga click en el enlace de add to cart, así le dará el id, producto y los estados actualizados de mainColor con amount
+
+#### AddToCart Reducer - New item
+
+1. recuperar id, color amount, product del payload para manejar la acción de ADD_TO_CART
+2. definir item temporal que buscará en el estado de cart si el id del item coincide con el id + color del item porque si no es así entonces estamos agregando un elemento completamente nuevo
+3. como no existe al principio un elemento con id = id+color entonces se crea un nuevo item que tenga ese id, más name: product.name, color, amount, image: product.images[0].url ya que images es un arreglo, price:product.price y max: product.stock. Una vez que se crea este nuevo item se retorna junto con el ...state mas un cart que tenga ...state.cart y el item nuevo
+4. una vez que existe este elemento, el elemento temporal será verdadero ya que find encontrará ese match entonces se debe manejar el estado true de tempItem con el if
+
+#### AddToCart Reducer - Existing Item
