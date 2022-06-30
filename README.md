@@ -193,3 +193,12 @@ FAST_REFRESH=FALSE
 1. definimos los filtros como estado inicial texto, company, category, color, min y max price, price y shipping. Min price y max price tendrá valor default 0. Usaremos el mismo render incial (LOAD_PRODUCTS) para desplegar los filtros iniciales
 2. en el reducer, precisamente en el condicional que maneja LOAD_PRODUCTS, se define una lista de todos los precios que hay en products (recuerda que products se pasa como payload), luego esa lista se obtiene con Math el máximo precio.
 3. el retorno de ese condicional en el reducer tendrá definido el nuevo estado de los filters max price y price al mismo valor de maxPrice.
+
+#### filters -text
+
+1. en el context de filter, se debe establecer en el useEffect de SORT_PRODUCT un dispatch antes con FILTER_PRODUCT, se agrega a la lista de dependencias state.filters para que no se renderize por cada cambio de filtro.
+2. también se establece en el contexto updateFilters que recoge el name y value del target de la casilla search (que se recoge desde el componente filters), esta función actualizará el filtro con UPDATE_FILTERS y payload name y value (se define clearFIlters para setearla posteriormente). No olvidar pasar como props estas dos funciones al provider
+3. en el componente de Filters, se recoge del contexto todos los filtros incluyendo las funciones de actualizar filtros, limpiar filtros y todos los productos.
+4. Filters tendrá un form que desactivará la opción por default al onSubmit y tendrá un input tipo texto con name= 'text' y value={text} con onChange={updateFilters}. onChange cambiará el valor de text y lo establecerá en el value. name ahora es válido porque filters tiene múltiples valores y solo interesa el que calza con name='text' (a diferencia de updateSort)
+5. el reducer reaccionará a UPDATE_FILTERS, recuperando name y value del payload y cambiando el estado inicial de filters a {...state.filters, [name]:value}
+6. también reducer reaccionará a FILTER_PRODUCTS cuando se escriba algo en la casilla de input text (este es el que se envía antes de SORT_PRODUCT en el useEffect del filter context)
