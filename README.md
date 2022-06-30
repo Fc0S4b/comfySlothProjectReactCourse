@@ -229,3 +229,11 @@ FAST_REFRESH=FALSE
 
 1. ocupamos range para filters de price, este debe ser con formatPrice y un range que cambia el price según updateFilters (usando además min_price y max_price como atributos del range)
 2. value toma price como texto, por lo que en el context updateFilters se debe asignar un condicional tal que si name es price entonces value debe ser Number(value)
+
+#### filters - shipping and clear filters
+
+1. para shipping en Filters será un label con free shipping y un input tipo checkbox que tendrá al onChange={updateFilters} y checked como booleano de shipping.
+2. updateFilter tendrá como condición de que si name === shipping entonces value = e.target.checked
+3. fuera del form en Filters habrá un button clear btn con onClick clearFilter, una nueva función en el context y por ende en el reducer
+4. en el context, clearFilters mandará como dispatch CLEAR_FILTERS
+5. Reducer reaccionará a CLEAR_FILTERS para setear todo como el estado inicial (copy y paste initialState) a execpción de max_price y min_price que no cambiarán a un estado incial de 0 y price tampoco tendrá estado incial de 0 por lo que se le asigna el valor de max_price
