@@ -250,3 +250,8 @@ FAST_REFRESH=FALSE
 2. para colores es diferente porque es un array por lo que se debe agregar una callback en filter. Este sería find que busca en product.colors el item que coincida con el color de la categoría actual
 3. para shipping se filtra tempProduct tal que product.shipping sea true
 4. para price se filtra tempProducts según el product.price sea menor al price del estado actual
+
+#### cart context setup
+
+1. estado inicial en el context de cart una lista vacía llamada cart, total_items:0, total_amount:0, costo de envío $5.34 (en centavos 534). Pasarlos al provider en el value el state invocado por useReducer que recibe el reducer y el initialState
+2. envolver App en el index con el CartProvider
