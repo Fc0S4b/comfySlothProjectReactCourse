@@ -336,3 +336,9 @@ FAST_REFRESH=FALSE
 4. de la función reducer se desctructura total_items y total_amount para retornar como respuesta del reducer con {...state, total_items, total_amount}
 5. lo que hace reduce es retornar un objeto con total_items y total_amount que comienzan con valores default de 0
 6. reduce toma amount y price de cartItem (que entra como parámetro). amount se lo añade al total_items y price\*amount al total_amount, se retorna siempre el total
+
+#### login con auth0 setup
+
+1. se usará auth0 para el login para eso se necesita configurar el Auth0Provider que envuelve los componentes en el index y el useProvider que será configurado desde user_context.
+2. Auth0Provider debe tener clave de domain, clientID y cacheLocation para que se conecte a la cuenta configurada desde la página web de auth0. Las claves son guardadas en archivo env (para configurar un archiv env debes definir una variable que almacene la clave pero que parta con el nombre de REACT*APP* y luego acceder a ella desde index con process.env.REACT*APP*, gitignore no tomará en cuenta los archivos env pero si el build final)
+3. el context de user tendrá isAuthenticated, loginWithRedirect, logout, user, isLoading que se recupera de useAuth0. Tendrá también una función de estado con useState con default null para el usuario y un useEffect que dependerá de isAuthenticated
