@@ -292,3 +292,7 @@ FAST_REFRESH=FALSE
 2. Habrá un componente para desplegar la grilla de los items llamado CartColumns, uno para cada item llamado CartItem y una opción que resume la compra con CartTotals
 3. se itera sobre cada cart con map para desplegar un CartItem con su propio key y el resto de las props ...item
 4. hay un link hacia la página de productos y un botón con la opción de limpiar el carro de compra que reacciona al onClick={clearCart}
+
+#### cart columns
+
+1. componente con 4 columnas y un span vacío, con un encabezado de item, price, quantity y subtotal
