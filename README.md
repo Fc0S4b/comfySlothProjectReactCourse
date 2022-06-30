@@ -347,3 +347,9 @@ FAST_REFRESH=FALSE
 
 1. se configura el componente de CartButtons para recuperar logintWithRedirect, myUser y logout desde useUserContext
 2. para el botón que tiene login, debe reaccionar onClick a loginWithRedirect y se debe hacer un botón para logout que reaccione con onClick a () => logout({returnTo: window.location.origin}), tendrá ícono de FaUserMinus
+
+#### auth0 toggle values
+
+1. useEffect en user context tiene en su lista de dependencias isAuthenticated, esta variable cambia de true a false cuando se inicia y cierra sesión
+2. por lo que useEffect tendrá un hook que establecerá setMyUser(user) si isAuthenticated es true, sino setMyUser(false) (user es obtenido cuando se inicia sesión con auth0, se asigna un objeto a user con la info del usuario)
+3. el componente CartButtons usará el valor del estado de myUser (recuperado con useUserContext) en un operador ternario, tal que si es verdadero mostrará el botón de logout y si es falso el botón de login
