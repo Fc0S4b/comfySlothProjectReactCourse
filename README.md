@@ -285,3 +285,10 @@ FAST_REFRESH=FALSE
 2. esto significa que state.cart estará en la lista de dependencias en un useEffect dentro del context. Se guardará en el localStorage.setItem 'cart' y se convertíra a formato JSON state.cart
 3. Existirá una función que recuperará cart desde localStorage y devolverá el cart convertido a formato normal (con JSON.parse) de lo contrario si no hay elementos en cart entonces devuelve una lista vacía
 4. initialState tendrá entonces a cart con valor a la función de getLocalStorage()
+
+#### cart content
+
+1. el componente CartContent tendrá cart y clearCart recuperado de useCartContext
+2. Habrá un componente para desplegar la grilla de los items llamado CartColumns, uno para cada item llamado CartItem y una opción que resume la compra con CartTotals
+3. se itera sobre cada cart con map para desplegar un CartItem con su propio key y el resto de las props ...item
+4. hay un link hacia la página de productos y un botón con la opción de limpiar el carro de compra que reacciona al onClick={clearCart}
