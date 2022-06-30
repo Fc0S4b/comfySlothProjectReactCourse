@@ -243,3 +243,10 @@ FAST_REFRESH=FALSE
 1. se necesita tener all_products que va a tener el valor de todos los products y filtered_products que siempre estará cambiando porque si solo se tiene filtered_product en cosa de segundos se quedará sin elementos, siempre se necesita tener una copia de todos los productos (acceso a los valores default).
 2. lo anterior se obtiene agregando en el reducer para FILTER_PRODUCTS, tempProducts = ...all_products como array para que tome todos los valores default u retorne en filtered_products: tempProducts
 3. si text recuperado de state.filters existe, entonces se actualiza tempProducts igual al nuevo tempProducts (que toma ...all_products) filtrado que retorna solo los items que contienen las letras que coinciden las primeras letras con los nombres de los productos
+
+#### filter functionality - rest of the filters
+
+1. si category en el condicional de FILTER_PRODUCTS no es igual a all entonces también, tempProducts será igual al nuevo tempProducts (igual al ...all_products) pero filtrando los product.category === category (esto igual con company)
+2. para colores es diferente porque es un array por lo que se debe agregar una callback en filter. Este sería find que busca en product.colors el item que coincida con el color de la categoría actual
+3. para shipping se filtra tempProduct tal que product.shipping sea true
+4. para price se filtra tempProducts según el product.price sea menor al price del estado actual
