@@ -237,3 +237,9 @@ FAST_REFRESH=FALSE
 3. fuera del form en Filters habrá un button clear btn con onClick clearFilter, una nueva función en el context y por ende en el reducer
 4. en el context, clearFilters mandará como dispatch CLEAR_FILTERS
 5. Reducer reaccionará a CLEAR_FILTERS para setear todo como el estado inicial (copy y paste initialState) a execpción de max_price y min_price que no cambiarán a un estado incial de 0 y price tampoco tendrá estado incial de 0 por lo que se le asigna el valor de max_price
+
+#### filter functionality -setup and text input
+
+1. se necesita tener all_products que va a tener el valor de todos los products y filtered_products que siempre estará cambiando porque si solo se tiene filtered_product en cosa de segundos se quedará sin elementos, siempre se necesita tener una copia de todos los productos (acceso a los valores default).
+2. lo anterior se obtiene agregando en el reducer para FILTER_PRODUCTS, tempProducts = ...all_products como array para que tome todos los valores default u retorne en filtered_products: tempProducts
+3. si text recuperado de state.filters existe, entonces se actualiza tempProducts igual al nuevo tempProducts (que toma ...all_products) filtrado que retorna solo los items que contienen las letras que coinciden las primeras letras con los nombres de los productos
