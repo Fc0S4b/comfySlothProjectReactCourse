@@ -159,3 +159,12 @@ FAST_REFRESH=FALSE
 1. vamos alternar grid_view entre falso y verdadero para mostrar la grilla y no, para eso se define como estado inicial grid_view:false en el filter_context
 2. ProductList tendrá como condición de que si grid_view es falso, entonces se muestra el componente ListView con el prop de products. También tiene una condición de que no muestra productos si products.length es menor a 1
 3. El componente ListView itera sobre el prop products con map para mostrar un article de key id, image, name y price con formatPrice. Un description acortado con el método substring y un link al producto ruteado al enlace según id
+
+#### Sort Component - Basic Setup
+
+1. El componente sort usará products y grid_view de useFilterContext
+2. la idea es crear dos botones con íconos de grilla rellena y de lista para activarse con clase condicional según grid_view sea verdadera o falsa
+3. un p con products.length para indicar cuantos productos se encontraron
+4. un form con 4 opciones de selección según tipo de sort (ya sea precio alto, bajo, por orden alfabético a-z o z-a)
+
+#### Sort component - view buttons
