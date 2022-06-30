@@ -313,3 +313,9 @@ FAST_REFRESH=FALSE
 6. otra columna con el componente de AmountButtons con props de amount, increase y decrease ya que se ajustará desde la misma página la cantidad de productos
 7. una columna de subtotal con price\*amount
 8. un botón de basura para remover items
+
+#### cart - remove item and clear cart
+
+1. desde el cart context se establece las funciones que darán las instrucciones para que el reducer reaccione, este es removeItem que le entregará al payload el id del producto con REMOVE_CART_ITEM y clearCart que envía la acción de CLEAR_CART
+2. el reducer tendrá como función para REMOVE_CART_ITEM un filtro de los productos actuales de cart si no son iguales al id que se entrega por payload, entonces si es así, se devuelve el nuevo estado {...state, cart: tempCart}. tempCart contiene los productos que no coincidían con el id filtrado
+3. reducer reaccionará a CLEAR_CART para solo dejar el nuevo estado del carro vacío {...state, cart:[]}
