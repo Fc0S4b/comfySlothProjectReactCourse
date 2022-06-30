@@ -213,4 +213,8 @@ FAST_REFRESH=FALSE
 #### filters - categories
 
 1. armar en el componente Filters un div con las categorías que se obtienen iterando sobre categories (obtenido antes con getUniqueValues), por cada categoría mostrarla como botón y asignarle una clase condicional que establece el botón activo además de la reacción a onClick para updateFilters
-2. updateFilters no podrá actualizar los valores de name y value a la categoría actual porque name tiene que ser igual a text y en este caso es igual a category. Para no tener que escribir una nueva función que actualize esto en el context y manejarla con el reductor, se coloca un condicional en updateFilters en donde si name === 'category' entonces value = e.target.textContent (ya no sería value = 'text')
+2. updateFilters no podrá actualizar los valores de name y value a la categoría actual porque value en el button de categories no recupera el texto que contiene ese botón. Para no tener que escribir una nueva función que actualize esto en el context y manejarla con el reductor, se coloca un condicional en updateFilters en donde si name === 'category' entonces value = e.target.textContent
+
+#### filters - companies
+
+1. armar lista desplegable de companies en el componente Filters. Con un select que tiene por value company, onChange updateFilters y que despliega option con map para cada companies asignándole value a la compañía respectiva
