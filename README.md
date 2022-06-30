@@ -296,3 +296,9 @@ FAST_REFRESH=FALSE
 #### cart columns
 
 1. componente con 4 columnas y un span vacío, con un encabezado de item, price, quantity y subtotal
+
+#### cart totals
+
+1. se recupera total_amount y shipping_fee desde useCartContext
+2. CartTotals tendrá un subtotal con formatPrice(total_amount), un shipping fee: con formatPrice(shipping_fee) y un total con la suma de los dos
+3. un link hacia la página de pago
