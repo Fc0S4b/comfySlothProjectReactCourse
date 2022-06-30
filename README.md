@@ -202,3 +202,10 @@ FAST_REFRESH=FALSE
 4. Filters tendrá un form que desactivará la opción por default al onSubmit y tendrá un input tipo texto con name= 'text' y value={text} con onChange={updateFilters}. onChange cambiará el valor de text y lo establecerá en el value. name ahora es válido porque filters tiene múltiples valores y solo interesa el que calza con name='text' (a diferencia de updateSort)
 5. el reducer reaccionará a UPDATE_FILTERS, recuperando name y value del payload y cambiando el estado inicial de filters a {...state.filters, [name]:value}
 6. también reducer reaccionará a FILTER_PRODUCTS cuando se escriba algo en la casilla de input text (este es el que se envía antes de SORT_PRODUCT en el useEffect del filter context)
+
+#### filters - unique values
+
+1. definir únicas categorías en el componente filters para category, company y colors, pasándole como parámetro a la función getUniqueValues (definida en helpers) el array de all_products y el type (category, company o colors)
+2. en el helpers se define getUniqueValues que toma el array (all_products) y type (tipo de categoría), se define los valores que calzen con algún tipo de categoría usando map para recorrer el arreglo y recogiendo la categoría que calza con el tipo item[type]
+3. si el type es colors entonces se reduce a un array de un nivel de profundidad usando el método flat (colors tiene varios niveles en su arreglo por lo que se puede aplanar con flat(), si flat tiene valor 2 entonces reduce a dos niveles de profundidad y así sucesivamente).
+4. por último getUniqueValues retorna la categoría 'all' con las únicas categorías que se establecen con new Set()
