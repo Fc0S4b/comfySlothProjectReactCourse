@@ -278,3 +278,10 @@ FAST_REFRESH=FALSE
 2. CartPage tendrá la lista de items que se recupera desde cart con useCartContext
 3. si la lista cart no tiene elementos entonces se despliega un mensaje diciendo que está vacío y un link de vuelta hacia los productos
 4. si tiene elementos cart entonces se configura la página de acuerdo un título dado por el componente de PageHero y un Wrapper envolviendo otro componente CartContent
+
+#### localstorage
+
+1. setup funcionalidad donde cada vez que haya un cambio en el carro se invoca useEffect y se guarda el current cart en el localstorage
+2. esto significa que state.cart estará en la lista de dependencias en un useEffect dentro del context. Se guardará en el localStorage.setItem 'cart' y se convertíra a formato JSON state.cart
+3. Existirá una función que recuperará cart desde localStorage y devolverá el cart convertido a formato normal (con JSON.parse) de lo contrario si no hay elementos en cart entonces devuelve una lista vacía
+4. initialState tendrá entonces a cart con valor a la función de getLocalStorage()
