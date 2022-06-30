@@ -255,3 +255,8 @@ FAST_REFRESH=FALSE
 
 1. estado inicial en el context de cart una lista vacía llamada cart, total_items:0, total_amount:0, costo de envío $5.34 (en centavos 534). Pasarlos al provider en el value el state invocado por useReducer que recibe el reducer y el initialState
 2. envolver App en el index con el CartProvider
+
+#### AddToCart Setup
+
+1. el provider del cart pasará una función a los componentes hijos addToCart. Esta función recibe id, color, amount y product como argumentos para dárselos al payload junto con la acción de ADD_TO_CART para que lo maneje el reducer
+2. El componente AddToCart pasará los argumentos anteriores cuando se haga click en el enlace de add to cart, así le dará el id, producto y los estados actualizados de mainColor con amount
