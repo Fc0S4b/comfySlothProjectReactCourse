@@ -168,3 +168,7 @@ FAST_REFRESH=FALSE
 4. un form con 4 opciones de selección según tipo de sort (ya sea precio alto, bajo, por orden alfabético a-z o z-a)
 
 #### Sort component - view buttons
+
+1. para togglear grid_view entre verdadero y falso (mostrar grilla o lista), realizamos dispatch a las acciones de SET_GRIDVIEW y SET_LISTVIEW al FilterProvider ya que estas acciones se pasarán a través de value como props al componente sort
+2. En el reducer del filter, cambiará de estado grid_view a true o false según el valor que tenga action.type: SET_GRIDVIEW o SET_LISTVIEW
+3. recuperamos las funciones setGridView y setListView desde useFilterContext en el componente Sort y lo seteamos en onClick para cada botón correspondiente
