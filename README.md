@@ -397,3 +397,12 @@ FAST_REFRESH=FALSE
 6. CartButtons tendrá una función de clearCart obtenida del contexto de cart y se usará en el momento en que se hace click para logout
 7. StripeCheckout será un componente que envolverá el componente de ChekcoutForm ya que desde CheckoutForm recibirá los datos del servidor de netlify que a su vez recibe los datos de stripe para hacer el entorno mas seguro
 8. el componente CheckoutPage mostrará un mensaje de que el carro está vacío si la lista de cart es menor que 1 con un botón de retornar a la página de productos, de lo contrario mostrará el componenten de StripeCheckout
+
+#### Stripe Checkout -imports
+
+1. configurar las claves secretas en .env de stripe
+2. realizar las importaciones al stripecheckout indicadas en docs de stripe (modo react, backend node, en custom payment flow y flujo de pago personalizado, checkoutform.jsx) [docs](https://stripe.com/docs/payments/quickstart)
+3. importar axios porque haremos post request
+4. importar los context de cart, user, formatPrice y useHistory de react router
+5. con una variable llamada promise se recupera usando loadStripe la clave publica de stripe
+6. el componente de checkoutform se envuelve en el componente de Elements configurando como props stripe={promise} (strype 8.13 esta instalado, ver dependencias)
