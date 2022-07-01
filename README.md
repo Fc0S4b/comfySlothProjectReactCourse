@@ -353,3 +353,9 @@ FAST_REFRESH=FALSE
 1. useEffect en user context tiene en su lista de dependencias isAuthenticated, esta variable cambia de true a false cuando se inicia y cierra sesión
 2. por lo que useEffect tendrá un hook que establecerá setMyUser(user) si isAuthenticated es true, sino setMyUser(false) (user es obtenido cuando se inicia sesión con auth0, se asigna un objeto a user con la info del usuario)
 3. el componente CartButtons usará el valor del estado de myUser (recuperado con useUserContext) en un operador ternario, tal que si es verdadero mostrará el botón de logout y si es falso el botón de login
+
+#### auth0 - Hide Checkout
+
+1. navbar tiene una opción de checkout en los links cuando se inicia sesión (cuando myUser es true)
+2. sidebar también tiene la opción de checkout como link y con onClick={closeSidebar} para cerrar el sidebar una vez que se hace click
+3. CartTotals va a depender de myUser si es true para mostrar un link hacia checkout de lo contrario mostrará la opción de login con opción de loginWithRedirect en onClick para redirigir hacia la página de inicio de sesión
