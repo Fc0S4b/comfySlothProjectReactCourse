@@ -376,3 +376,13 @@ FAST_REFRESH=FALSE
 3. App se envuelve en un componente AuthWrapper
 4. lo que hace AuthWrapper es manejar el estado de carga y el error obtenido de useAuth0, si esta cargando entonces que muestre un mensaje de carga y si hay error, el mensaje de error
 5. si no es carga ni error entonces muestra el componente hijo que envuelve {children}
+
+#### notas adicionales y arreglando advertencias
+
+1. se usará stripe versión 8.3
+2. en featuredProducts se agrega un link hacia todos los productos
+3. se arregla la ruta de AuthWrapper en index de pages
+4. cambio de texto alternativo para la imagen en productImages (un alt de imagen que tenga el nombre de image o picture no es descriptivo)
+5. se comenta la importación useUserContext en PrivateRoute ya que no se usará
+6. // eslint-disable-next-line para los useEffect de singleproductpage
+7. return item en vez de else en un if de cart reducer para TOGGLE_CART_ITEM_AMOUNT, el if general ya que pedía considerar más condiciones
