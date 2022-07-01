@@ -368,3 +368,11 @@ FAST_REFRESH=FALSE
 4. el componente de PrivateRoute tiene Redirect importado desde react-router
 5. con children pasamos checkout como props y ...rest el resto de los parámetros que son exact path='/checkout'
 6. se configura un componente Route que recibe las props con {...rest} y realiza un render con una arrow function tal que si myUser es true entonces muestra el children de lo contrario redirecciona hacia home
+
+#### AuthWrapper
+
+1. useEffect en user context se puede reescribir como setMyUser(user) con user en lista de dependecias para ahorrar mas líneas. isAuthenticated, isLoading ya no son necesarios
+2. PrivateRoute necesita user obtenido de useAuth0 por lo que se cambia por ese en vez de myUser
+3. App se envuelve en un componente AuthWrapper
+4. lo que hace AuthWrapper es manejar el estado de carga y el error obtenido de useAuth0, si esta cargando entonces que muestre un mensaje de carga y si hay error, el mensaje de error
+5. si no es carga ni error entonces muestra el componente hijo que envuelve {children}
