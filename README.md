@@ -406,3 +406,7 @@ FAST_REFRESH=FALSE
 4. importar los context de cart, user, formatPrice y useHistory de react router
 5. con una variable llamada promise se recupera usando loadStripe la clave publica de stripe
 6. el componente de checkoutform se envuelve en el componente de Elements configurando como props stripe={promise} (strype 8.13 esta instalado, ver dependencias)
+
+#### stripe checkout - state variables
+
+1. básicamente se usan los hooks que recomienda stripe docs del enlace anterior junto con los estilos para el componente CheckoutForm
