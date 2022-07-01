@@ -359,3 +359,12 @@ FAST_REFRESH=FALSE
 1. navbar tiene una opción de checkout en los links cuando se inicia sesión (cuando myUser es true)
 2. sidebar también tiene la opción de checkout como link y con onClick={closeSidebar} para cerrar el sidebar una vez que se hace click
 3. CartTotals va a depender de myUser si es true para mostrar un link hacia checkout de lo contrario mostrará la opción de login con opción de loginWithRedirect en onClick para redirigir hacia la página de inicio de sesión
+
+#### Private Route
+
+1. restringir checkout page si no hay login. Se puede acceder si se escribe el enlace /checkout en el navegador
+2. en App se importa el componente PrivateRoute que proviene del index en pages
+3. se envuelve checkout de App con el componente PrivateRoute. PrivateRoute depende de si user es true para mostrar checkout o no
+4. el componente de PrivateRoute tiene Redirect importado desde react-router
+5. con children pasamos checkout como props y ...rest el resto de los parámetros que son exact path='/checkout'
+6. se configura un componente Route que recibe las props con {...rest} y realiza un render con una arrow function tal que si myUser es true entonces muestra el children de lo contrario redirecciona hacia home
