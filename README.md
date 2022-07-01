@@ -386,3 +386,14 @@ FAST_REFRESH=FALSE
 5. se comenta la importación useUserContext en PrivateRoute ya que no se usará
 6. // eslint-disable-next-line para los useEffect de singleproductpage
 7. return item en vez de else en un if de cart reducer para TOGGLE_CART_ITEM_AMOUNT, el if general ya que pedía considerar más condiciones
+
+#### netlify-cli- stripeCheckout- checkoutPage
+
+1. instalar netlify-cli con npm install netlify-cli -g
+2. iniciar el servidor con ntl dev o netlify dev
+3. crear una carpeta en route llamada functions con un archivo hello.js y en route un archivo netlify.toml
+4. en netlify.toml se especifica la ruta de la carpeta de functions y en hello.js escribir un código simple de prueba exportado con exports.handler
+5. checkear si se ve el hello world en el dominio localhost:8888/..netlify/functions/hello
+6. CartButtons tendrá una función de clearCart obtenida del contexto de cart y se usará en el momento en que se hace click para logout
+7. StripeCheckout será un componente que envolverá el componente de ChekcoutForm ya que desde CheckoutForm recibirá los datos del servidor de netlify que a su vez recibe los datos de stripe para hacer el entorno mas seguro
+8. el componente CheckoutPage mostrará un mensaje de que el carro está vacío si la lista de cart es menor que 1 con un botón de retornar a la página de productos, de lo contrario mostrará el componenten de StripeCheckout
