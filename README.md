@@ -1,3 +1,14 @@
+# Proyecto FrontEnd de tienda comercial con React v17.0.1
+
+1. Manejo de Errores
+2. Integraciones on formspree y Sprite
+3. Uso de Axios para fetch request y variables env
+4. Uso de React Icons y Styled Components
+5. Carro de compra y filtros de lista de productos con useContext y reducers
+6. React router 6
+7. LocalStorage para almacenar productos de carro de compra
+8. Login/Logout con auth0
+
 ## Notes
 
 #### Older React Version
